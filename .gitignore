@@ -3,6 +3,3 @@
 build/
 node_modules
 npm-debug.log
-*-10m.json
-*-50m.json
-*-110m.json

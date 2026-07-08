@@ -1,7 +1,7 @@
 {
-  "name": "world-atlas",
-  "version": "2.0.2",
-  "description": "Pre-built TopoJSON from Natural Earth.",
+  "name": "@cublya/world-atlas",
+  "version": "3.0.0-beta.0",
+  "description": "Versioned, validated TopoJSON built from current Natural Earth data.",
   "license": "ISC",
   "keywords": [
     "topojson",
@@ -12,25 +12,46 @@
     "name": "Mike Bostock",
     "url": "https://bost.ocks.org/mike"
   },
+  "contributors": [
+    {
+      "name": "Cublya",
+      "url": "https://github.com/cublya"
+    },
+    {
+      "name": "Hikmat Samadov",
+      "email": "s3m3dov@hotmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/topojson/world-atlas.git"
+    "url": "https://github.com/cublya/world-atlas.git"
   },
   "files": [
     "*-10m.json",
     "*-50m.json",
-    "*-110m.json"
+    "*-110m.json",
+    "DATA_LICENSE.md",
+    "source.json"
   ],
   "scripts": {
-    "prepublishOnly": "bash prepublish",
-    "postpublish": "git push && git push --tags"
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "npm run validate",
+    "prepack": "npm run build && npm run validate"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
-    "d3-geo-projection": "^2.0.1",
-    "ndjson-cli": "^0.3.0",
-    "shapefile": "^0.6.1",
-    "topojson-client": "^3.0.0",
-    "topojson-server": "^3.0.0",
-    "topojson-simplify": "^3.0.0"
+    "d3-geo": "^3.1.1",
+    "d3-geo-projection": "^4.0.0",
+    "extract-zip": "^2.0.1",
+    "i18n-iso-countries": "^7.14.0",
+    "shapefile": "^0.6.6",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1"
   }
 }
