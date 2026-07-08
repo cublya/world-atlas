@@ -1,0 +1,73 @@
+# @cublya/world-atlas
+
+> Versioned and validated TopoJSON built from Natural Earth vector data, with default UN-style country boundaries and alternate independent map-unit country boundaries.
+
+@cublya/world-atlas is a data package. It publishes quantized, unprojected TopoJSON in spherical longitude and latitude coordinates. It is designed for libraries such as `d3-geo`, `topojson-client`, and `@cublya/geomap`.
+
+## Essential Links
+
+- [README](./README.md): install, boundary views, coverage, rebuild instructions, and file reference.
+- [Source metadata](./source.json): Natural Earth version, quantization, checksums, boundary views, and generated file list.
+- [Data license](./DATA_LICENSE.md): Natural Earth public domain data notice and build-code license split.
+- [Build script](./scripts/build.mjs): reproducible artifact generation from Natural Earth source archives.
+- [Validation script](./scripts/validate.mjs): coverage and artifact validation checks.
+- [Coverage IDs script](./scripts/coverage-ids.mjs): country coverage helper.
+- [Project site](./docs/index.html): static landing page content for the package.
+
+## Published Files
+
+- `countries-10m.json`: large-scale UN-style country topology with `countries` and `land` objects.
+- `countries-50m.json`: medium-scale UN-style country topology with `countries` and `land` objects.
+- `countries-110m.json`: small-scale UN-style country topology with `countries` and `land` objects.
+- `countries-independent-10m.json`: large-scale Natural Earth independent map-unit country topology.
+- `countries-independent-50m.json`: medium-scale Natural Earth independent map-unit country topology.
+- `countries-independent-110m.json`: small-scale Natural Earth independent map-unit country topology.
+- `land-10m.json`: large-scale land topology with a `land` object.
+- `land-50m.json`: medium-scale land topology with a `land` object.
+- `land-110m.json`: small-scale land topology with a `land` object.
+- `source.json`: source release metadata and build checksums.
+- `DATA_LICENSE.md`: data licensing information.
+
+## Data Model
+
+- Files are TopoJSON topologies.
+- Coordinates are unprojected spherical longitude and latitude in decimal degrees.
+- Geometry is quantized with quantization value `100000`.
+- Country files contain `world.objects.countries` and `world.objects.land`.
+- Land-only files contain `world.objects.land`.
+- Country feature IDs are ISO 3166-1 numeric strings when Natural Earth and the project policy provide a stable country identity.
+- Country properties include `name`, `boundaryView`, and additional Natural Earth metadata such as `nameLong`, `adm0A3`, `isoA2`, `isoA3`, `isoN3`, `type`, `sovereignty`, `fclassIso`, `fclassTlc`, `note`, and `policyMergedMapUnits` when available.
+
+## Boundary Views
+
+- Default `countries-*.json` files use a UN-style sovereign-state view.
+- In the default view, Crimea is assigned to Ukraine.
+- In the default view, Kosovo is dissolved into Serbia.
+- In the default view, Northern Cyprus and the Cyprus U.N. Buffer Zone are dissolved into Cyprus.
+- In the default view, Somaliland is dissolved into Somalia.
+- In the default view, Western Sahara remains a distinct territory.
+- `countries-independent-*.json` files preserve Natural Earth independent map units such as Kosovo, Northern Cyprus, Somaliland, and Western Sahara when present in source data.
+- These files are not official United Nations cartographic products.
+
+## Coverage Guidance
+
+- Use `10m` or `50m` country files when complete coverage of 193 UN member states and the two non-member observer states matters.
+- Use `110m` for compact global overviews where Natural Earth's omission of microstates is acceptable.
+- Current coverage from committed docs: `10m` and `50m` include 193 of 193 UN members and 2 of 2 observer states; `110m` includes 165 of 193 UN members and 1 of 2 observer states.
+
+## Usage Notes For LLMs
+
+- Install with `npm install @cublya/world-atlas`.
+- In modern ESM examples, import JSON with an import attribute, for example `import world from "@cublya/world-atlas/countries-50m.json" with { type: "json" };`.
+- Convert TopoJSON to GeoJSON with `topojson-client` when using generic map renderers, for example `feature(world, world.objects.countries)`.
+- With `@cublya/geomap`, import a country file and pass it to `prepareCountries(world, options)`.
+- Do not imply that boundary views are politically neutral or official. Describe the default as this package's documented UN-style policy.
+- Natural Earth data is public domain. The repository build code is ISC-licensed.
+
+## Development
+
+- Install: `npm install`
+- Rebuild artifacts: `npm run build`
+- Validate artifacts: `npm run validate`
+- Test: `npm run test`
+- Package preflight: `npm run prepack`

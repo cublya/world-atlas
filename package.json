@@ -1,6 +1,6 @@
 {
   "name": "@cublya/world-atlas",
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0",
   "description": "Versioned, validated TopoJSON built from current Natural Earth data.",
   "license": "ISC",
   "keywords": [
@@ -31,6 +31,7 @@
     "*-50m.json",
     "*-110m.json",
     "DATA_LICENSE.md",
+    "llms.txt",
     "source.json"
   ],
   "scripts": {
