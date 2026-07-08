@@ -6,13 +6,13 @@
 
 ## Essential Links
 
-- [README](./README.md): install, boundary views, coverage, rebuild instructions, and file reference.
-- [Source metadata](./source.json): Natural Earth version, quantization, checksums, boundary views, and generated file list.
-- [Data license](./DATA_LICENSE.md): Natural Earth public domain data notice and build-code license split.
-- [Build script](./scripts/build.mjs): reproducible artifact generation from Natural Earth source archives.
-- [Validation script](./scripts/validate.mjs): coverage and artifact validation checks.
-- [Coverage IDs script](./scripts/coverage-ids.mjs): country coverage helper.
-- [Project site](./docs/index.html): static landing page content for the package.
+- [README](https://github.com/cublya/world-atlas#readme): install, boundary views, coverage, rebuild instructions, and file reference.
+- [Source metadata](https://github.com/cublya/world-atlas/blob/master/source.json): Natural Earth version, quantization, checksums, boundary views, and generated file list.
+- [Data license](https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md): Natural Earth public domain data notice and build-code license split.
+- [Build script](https://github.com/cublya/world-atlas/blob/master/scripts/build.mjs): reproducible artifact generation from Natural Earth source archives.
+- [Validation script](https://github.com/cublya/world-atlas/blob/master/scripts/validate.mjs): coverage and artifact validation checks.
+- [Coverage IDs script](https://github.com/cublya/world-atlas/blob/master/scripts/coverage-ids.mjs): country coverage helper.
+- [Project site](https://cublya.github.io/world-atlas/): static landing page content for the package.
 
 ## Published Files
 

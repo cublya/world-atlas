@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/brand/logo-white.svg">
-    <img src="docs/brand/logo-black.svg" alt="World Atlas" width="180">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cublya/world-atlas/master/docs/brand/logo-white.svg">
+    <img src="https://raw.githubusercontent.com/cublya/world-atlas/master/docs/brand/logo-black.svg" alt="World Atlas" width="180">
   </picture>
 </p>
 
@@ -71,9 +71,9 @@ microstates as part of Natural Earth's small-scale generalization.
 
 ## Rebuilding
 
-The source release, URLs, quantization, and output names are fixed in
-[`scripts/build.mjs`](scripts/build.mjs). Downloads are cached under the ignored
-`build/` directory.
+The source release, URLs, quantization, and output names are fixed in the
+[build script](https://github.com/cublya/world-atlas/blob/master/scripts/build.mjs).
+Downloads are cached under the ignored `build/` directory.
 
 ```sh
 npm ci
