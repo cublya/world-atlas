@@ -142,18 +142,36 @@ footer a:hover {
   color: var(--ink-soft);
   font-size: 0.73rem;
   font-weight: 750;
+}
+
+/* Small section label — uppercase reads as an intentional chip here. */
+.kicker {
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
-.eyebrow span {
-  display: inline-block;
-  margin-right: 0.65rem;
-  padding: 0.2rem 0.55rem;
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.eyebrow-badge {
+  padding: 0.25rem 0.6rem;
   color: var(--white);
   border-radius: 999px;
   background: var(--accent);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.eyebrow-source {
+  white-space: nowrap;
+}
+
+.eyebrow-source strong {
+  color: var(--ink);
 }
 
 h1,
@@ -270,8 +288,7 @@ h3 {
   justify-content: space-between;
   font-size: 0.68rem;
   font-weight: 750;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 .intro-strip {
@@ -489,9 +506,8 @@ h3 {
   color: var(--ink-soft);
   border-bottom: 2px solid var(--ink);
   font-size: 0.67rem;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.01em;
   text-align: left;
-  text-transform: uppercase;
 }
 
 .coverage-table td {
@@ -509,13 +525,26 @@ h3 {
   font-size: 0.72rem;
 }
 
+/* Reserve a gutter on the count columns so every number lines up,
+   whether or not it carries a status dot. */
+.coverage-table td:nth-child(2),
+.coverage-table td:nth-child(3) {
+  padding-left: 1.9rem;
+}
+
+.complete {
+  position: relative;
+}
+
 .complete::before {
-  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: -1.15rem;
   width: 7px;
   height: 7px;
-  margin-right: 0.45rem;
   border-radius: 50%;
   background: #3d8f64;
+  transform: translateY(-50%);
   content: "";
 }
 
@@ -738,6 +767,13 @@ footer > div:last-child {
 @media (max-width: 680px) {
   .site-header {
     min-height: 62px;
+  }
+
+  /* Stack the version badge and source on their own lines. */
+  .eyebrow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
   .github-link {
