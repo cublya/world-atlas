@@ -89,13 +89,30 @@ code {
 
 .brand-mark {
   display: grid;
+  position: relative;
   width: 30px;
   height: 30px;
   place-items: center;
   border: 1px solid var(--ink);
   border-radius: 50%;
-  font-family: var(--serif);
-  font-size: 1.25rem;
+}
+
+.brand-mark::before,
+.brand-mark::after {
+  position: absolute;
+  content: "";
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+}
+
+.brand-mark::before {
+  width: 15px;
+  height: 15px;
+}
+
+.brand-mark::after {
+  width: 8px;
+  height: 8px;
 }
 
 .site-header nav {

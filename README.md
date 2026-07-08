@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/brand/logo-white.svg">
-    <img src="docs/brand/logo-black.svg" alt="Cublya" width="140">
+    <img src="docs/brand/logo-black.svg" alt="World Atlas" width="180">
   </picture>
 </p>
 
