@@ -186,7 +186,7 @@ async function readFeatures(path) {
   return collection.features;
 }
 
-function topojsonFromFeatures(features) {
+function buildIndependentView(features) {
   const publicFeatures = features.map((feature) => ({
     ...feature,
     properties: countryProperties(feature.properties, { boundaryView: "independent" }),
@@ -275,7 +275,7 @@ async function buildCountries(scale) {
     return stitched;
   });
 
-  await writeFile(join(root, `countries-independent-${scale}.json`), `${JSON.stringify(topojsonFromFeatures(features))}\n`);
+  await writeFile(join(root, `countries-independent-${scale}.json`), `${JSON.stringify(buildIndependentView(features))}\n`);
   await writeFile(join(root, `countries-${scale}.json`), `${JSON.stringify(buildUnView(features))}\n`);
 }
 
