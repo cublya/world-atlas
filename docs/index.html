@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Versioned, validated TopoJSON built from Natural Earth with UN-style and independent boundary views.">
+    <meta name="theme-color" content="#17251f">
+    <title>Cublya World Atlas TopoJSON</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='27' fill='%23f7f4ec' stroke='%2317251f' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23e86538' stroke-width='4'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="World Atlas home">
+        <span class="brand-mark" aria-hidden="true">◎</span>
+        <span>World Atlas</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#boundary-views">Boundary views</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#files">Files</a>
+        <a href="#data-model">Data model</a>
+      </nav>
+      <a class="github-link" href="https://github.com/cublya/world-atlas">GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="content">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>3.0.0-beta.0</span> Natural Earth 5.1.2</div>
+          <h1>World geography,<br><em>ready to draw.</em></h1>
+          <p class="hero-intro">
+            A convenient redistribution of Natural Earth’s vector data as
+            quantized TopoJSON—maintained as a successor to the original
+            <a href="https://github.com/topojson/world-atlas">world-atlas</a> package.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#install">Get started</a>
+            <a class="button button-secondary" href="#files">Browse files</a>
+          </div>
+        </div>
+        <div class="hero-map" role="img" aria-label="Outline map of countries of the world">
+          <img src="https://raw.githubusercontent.com/cublya/world-atlas/master/img/countries.png" alt="" width="960" height="548">
+          <div class="map-caption"><span>Admin 0</span><span>WGS84 · unprojected</span></div>
+        </div>
+      </section>
+
+      <section class="intro-strip" aria-label="Project attributes">
+        <div><strong>Public domain data</strong><span>Free for commercial use and modification</span></div>
+        <div><strong>Reproducible</strong><span>Versioned sources with verified checksums</span></div>
+        <div><strong>Compatible</strong><span>Original artifact names and object structure</span></div>
+      </section>
+
+      <section class="section install-section" id="install">
+        <div class="section-heading">
+          <p class="kicker">Install</p>
+          <h2>A small package with<br>a familiar interface.</h2>
+          <p>
+            Choose a resolution, import the topology, and convert its country
+            collection with <code>topojson-client</code>.
+          </p>
+        </div>
+        <div class="code-stack">
+          <div class="code-card">
+            <div class="code-label"><span>Terminal</span><span>npm</span></div>
+            <pre><code>npm install @cublya/world-atlas topojson-client</code></pre>
+          </div>
+          <div class="code-card">
+            <div class="code-label"><span>JavaScript</span><span>ES modules</span></div>
+            <pre><code><span class="syntax-keyword">import</span> { feature } <span class="syntax-keyword">from</span> <span class="syntax-string">"topojson-client"</span>;
+<span class="syntax-keyword">import</span> world <span class="syntax-keyword">from</span> <span class="syntax-string">"@cublya/world-atlas/countries-50m.json"</span>
+  <span class="syntax-keyword">with</span> { type: <span class="syntax-string">"json"</span> };
+
+<span class="syntax-keyword">const</span> countries = feature(world, world.objects.countries);</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tinted" id="boundary-views">
+        <div class="section-heading wide-heading">
+          <p class="kicker">Boundary views</p>
+          <h2>One source. Two geopolitical views.</h2>
+          <p>
+            The default files apply a documented UN-style sovereign-state
+            policy. Alternate files preserve Natural Earth’s independent map
+            units. “UN-style” describes this project’s boundary policy; these
+            files are not official United Nations cartographic products.
+          </p>
+        </div>
+
+        <div class="view-grid">
+          <article class="view-card featured">
+            <div class="card-topline"><span class="pill">Default</span><span>countries-*.json</span></div>
+            <h3>UN-style view</h3>
+            <p>Use this view for maps organized around UN-recognized sovereign states.</p>
+            <ul class="policy-list">
+              <li><span>Crimea</span><strong>Ukraine</strong></li>
+              <li><span>Kosovo</span><strong>Serbia</strong></li>
+              <li><span>Northern Cyprus</span><strong>Cyprus</strong></li>
+              <li><span>Somaliland</span><strong>Somalia</strong></li>
+              <li><span>Western Sahara</span><strong>Separate territory</strong></li>
+            </ul>
+          </article>
+
+          <article class="view-card">
+            <div class="card-topline"><span class="pill quiet">Alternate</span><span>countries-independent-*.json</span></div>
+            <h3>Independent map-unit view</h3>
+            <p>
+              Use this view when Kosovo, Northern Cyprus, Somaliland, Western
+              Sahara, and similar Natural Earth map units should remain separate.
+            </p>
+            <pre class="compact-code"><code><span class="syntax-keyword">import</span> world <span class="syntax-keyword">from</span>
+  <span class="syntax-string">"@cublya/world-atlas/
+countries-independent-50m.json"</span>
+  <span class="syntax-keyword">with</span> { type: <span class="syntax-string">"json"</span> };</code></pre>
+            <p class="card-note">
+              Features expose <code>properties.boundaryView</code>. Merged
+              default features also expose <code>policyMergedMapUnits</code>.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="coverage">
+        <div class="section-heading">
+          <p class="kicker">Coverage</p>
+          <h2>Pick the scale that fits the map.</h2>
+          <p>
+            Natural Earth generalizes small-scale data by omitting microstates.
+            Use 10m or 50m whenever complete UN country coverage matters.
+          </p>
+        </div>
+        <div class="coverage-table-wrap">
+          <table class="coverage-table">
+            <thead>
+              <tr>
+                <th>Resolution</th>
+                <th>UN members</th>
+                <th>Observer states</th>
+                <th>Best for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>10m</strong><span>Large scale</span></td>
+                <td><span class="complete">193 / 193</span></td>
+                <td><span class="complete">2 / 2</span></td>
+                <td>Detailed maps and close views</td>
+              </tr>
+              <tr>
+                <td><strong>50m</strong><span>Medium scale</span></td>
+                <td><span class="complete">193 / 193</span></td>
+                <td><span class="complete">2 / 2</span></td>
+                <td>General-purpose world maps</td>
+              </tr>
+              <tr>
+                <td><strong>110m</strong><span>Small scale</span></td>
+                <td>165 / 193</td>
+                <td>1 / 2</td>
+                <td>Compact global overviews</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-note">
+            Coverage is measured against 193 UN member states and the two
+            non-member observer states: the Holy See and the State of Palestine.
+          </p>
+        </div>
+      </section>
+
+      <section class="section files-section" id="files">
+        <div class="section-heading wide-heading">
+          <p class="kicker">File reference</p>
+          <h2>Pre-built TopoJSON at three resolutions.</h2>
+          <p>
+            Coordinates are spherical longitude and latitude in decimal degrees.
+            Geometry is quantized but not projected.
+          </p>
+        </div>
+
+        <div class="file-list">
+          <article class="file-row" id="countries-110m">
+            <div class="file-name"><span class="file-icon">{ }</span><div><h3>countries-110m.json</h3><span>Small scale · UN-style</span></div></div>
+            <p>
+              A TopoJSON file containing the geometry collections
+              <code>countries</code> and <code>land</code>, derived from Natural
+              Earth’s 1:110m Admin 0 country boundaries.
+            </p>
+            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.0/countries-110m.json">Download <span aria-hidden="true">↓</span></a>
+          </article>
+
+          <article class="file-row" id="countries-50m">
+            <div class="file-name"><span class="file-icon">{ }</span><div><h3>countries-50m.json</h3><span>Medium scale · UN-style</span></div></div>
+            <p>
+              A TopoJSON file containing the geometry collections
+              <code>countries</code> and <code>land</code>, derived from Natural
+              Earth’s 1:50m Admin 0 country boundaries.
+            </p>
+            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.0/countries-50m.json">Download <span aria-hidden="true">↓</span></a>
+          </article>
+
+          <article class="file-row" id="countries-10m">
+            <div class="file-name"><span class="file-icon">{ }</span><div><h3>countries-10m.json</h3><span>Large scale · UN-style</span></div></div>
+            <p>
+              A TopoJSON file containing the geometry collections
+              <code>countries</code> and <code>land</code>, derived from Natural
+              Earth’s 1:10m Admin 0 country boundaries.
+            </p>
+            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.0/countries-10m.json">Download <span aria-hidden="true">↓</span></a>
+          </article>
+
+          <article class="file-row alternate-row" id="independent-files">
+            <div class="file-name"><span class="file-icon">±</span><div><h3>countries-independent-*.json</h3><span>10m · 50m · 110m</span></div></div>
+            <p>
+              The same object structure as the default country files, preserving
+              Natural Earth’s independent map units when present in source data.
+            </p>
+            <a href="https://github.com/cublya/world-atlas#boundary-views">Details <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="file-row" id="land-files">
+            <div class="file-name"><span class="file-icon">◇</span><div><h3>land-*.json</h3><span>10m · 50m · 110m</span></div></div>
+            <p>
+              TopoJSON files containing the <code>land</code> geometry collection,
+              derived from Natural Earth’s physical land boundaries.
+            </p>
+            <a href="https://github.com/cublya/world-atlas">Browse <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section tinted" id="data-model">
+        <div class="section-heading">
+          <p class="kicker">Data model</p>
+          <h2>The original shape, with useful metadata.</h2>
+          <p>
+            Country files preserve the familiar <code>objects.countries</code>
+            and <code>objects.land</code> collections used by world-atlas 2.x.
+          </p>
+        </div>
+        <div class="model-grid">
+          <article>
+            <span class="model-number">01</span>
+            <h3>Country identifier</h3>
+            <p>
+              <code>country.id</code> is the three-digit ISO 3166-1 numeric code
+              when one exists, such as <code>"528"</code> for the Netherlands.
+              Non-ISO map units in the independent view may omit it.
+            </p>
+          </article>
+          <article>
+            <span class="model-number">02</span>
+            <h3>Country properties</h3>
+            <p>
+              Every feature includes <code>name</code> and <code>boundaryView</code>.
+              ISO codes, sovereignty, classification, notes, and policy merge
+              metadata are included when available.
+            </p>
+          </article>
+          <article>
+            <span class="model-number">03</span>
+            <h3>Land geometry</h3>
+            <p>
+              In country topologies, land is computed by merging country arcs,
+              ensuring consistent shared boundaries. Standalone land files use
+              Natural Earth physical vectors.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section provenance-section" id="source">
+        <div class="provenance-card">
+          <div>
+            <p class="kicker">Source and license</p>
+            <h2>Open by default.</h2>
+          </div>
+          <div class="provenance-copy">
+            <p>
+              Generated artifacts are derived from Natural Earth 5.1.2. Natural
+              Earth places its raster and vector map data in the public domain:
+              commercial use, modification, and redistribution are permitted
+              without permission or required attribution.
+            </p>
+            <p>
+              The build code is ISC-licensed. Source URLs, archive checksums,
+              quantization, boundary views, and output names are recorded in
+              <a href="https://github.com/cublya/world-atlas/blob/master/source.json"><code>source.json</code></a>.
+            </p>
+            <div class="text-links">
+              <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth terms <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md">Data license <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section build-section" id="rebuilding">
+        <div class="section-heading">
+          <p class="kicker">Rebuilding</p>
+          <h2>Reproducible from source.</h2>
+          <p>
+            The build downloads pinned Natural Earth archives, verifies their
+            SHA-256 checksums, and regenerates every committed artifact.
+          </p>
+        </div>
+        <div class="code-card light-code">
+          <div class="code-label"><span>Terminal</span><span>Node.js 20+</span></div>
+          <pre><code>git clone https://github.com/cublya/world-atlas.git
+cd world-atlas
+npm ci
+npm run build
+npm run validate</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true">◎</span><strong>World Atlas</strong></div>
+      <p>Natural Earth TopoJSON, maintained by <a href="https://github.com/cublya">Cublya</a>.</p>
+      <div><a href="https://github.com/cublya/world-atlas">GitHub</a><a href="https://www.npmjs.com/package/@cublya/world-atlas">npm</a><a href="#top">Back to top ↑</a></div>
+    </footer>
+  </body>
+</html>

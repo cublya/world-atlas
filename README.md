@@ -12,6 +12,8 @@ domain](https://www.naturalearthdata.com/about/terms-of-use/): commercial use,
 modification, and redistribution are permitted without permission or required
 attribution. The build code remains ISC-licensed.
 
+**[Read the documentation](https://cublya.github.io/world-atlas/)**
+
 ## Install
 
 ```sh
