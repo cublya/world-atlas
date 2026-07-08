@@ -1,0 +1,42 @@
+{
+  "naturalEarthVersion": "5.1.2",
+  "quantization": 100000,
+  "archiveSha256": {
+    "10m/cultural/admin_0_countries": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6",
+    "10m/physical/land": "e547d749445eaa0964aba76738090ec88f5e63c4585122170f98c67a7ea922dc",
+    "50m/cultural/admin_0_countries": "5fed433373581fa648920435f937d95f2d3c0200e067409c6478dcdf1b853139",
+    "50m/physical/land": "0b8e670cf80dce9cbebe2a193bc44ba5602758c22e1fa603980553646d7ff162",
+    "110m/cultural/admin_0_countries": "0f243aeac8ac6cf26f0417285b0bd33ac47f1b5bdb719fd3e0df37d03ea37110",
+    "110m/physical/land": "1926c621afd6ac67c3f36639bb1236134a48d82226dc675d3e3df53d02d2a3de"
+  },
+  "boundaryViews": {
+    "un": {
+      "default": true,
+      "files": [
+        "countries-10m.json",
+        "countries-50m.json",
+        "countries-110m.json"
+      ],
+      "description": "UN-style sovereign-state view. Kosovo, Northern Cyprus, the Cyprus UN buffer zone, and Somaliland are dissolved into the UN-recognized sovereign state; Crimea is assigned to Ukraine."
+    },
+    "independent": {
+      "files": [
+        "countries-independent-10m.json",
+        "countries-independent-50m.json",
+        "countries-independent-110m.json"
+      ],
+      "description": "Natural Earth independent map-unit view. Kosovo, Northern Cyprus, Somaliland, Western Sahara, and similar map units are kept as separate features when present in Natural Earth."
+    }
+  },
+  "files": [
+    "countries-10m.json",
+    "countries-50m.json",
+    "countries-110m.json",
+    "countries-independent-10m.json",
+    "countries-independent-50m.json",
+    "countries-independent-110m.json",
+    "land-10m.json",
+    "land-50m.json",
+    "land-110m.json"
+  ]
+}
