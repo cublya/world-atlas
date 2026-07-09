@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cublya.github.io/world-atlas/sitemap.xml
