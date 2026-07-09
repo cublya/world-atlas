@@ -3,11 +3,54 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Versioned, validated TopoJSON built from Natural Earth with UN-style and independent boundary views.">
+    <title>World Atlas · Natural Earth TopoJSON country &amp; land boundaries</title>
+    <meta name="description" content="Versioned, validated TopoJSON built from Natural Earth: country and land boundaries at 10m, 50m and 110m with UN-style and independent boundary views. A drop-in successor to world-atlas.">
+    <meta name="keywords" content="topojson, geojson, natural earth, world map, country boundaries, land boundaries, world-atlas, d3-geo, cartography, choropleth basemap, iso 3166">
+    <meta name="author" content="Cublya">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://cublya.github.io/world-atlas/">
     <meta name="theme-color" content="#17251f">
-    <title>World Atlas TopoJSON</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="World Atlas">
+    <meta property="og:title" content="World Atlas · Natural Earth TopoJSON country &amp; land boundaries">
+    <meta property="og:description" content="Natural Earth vector data as quantized, versioned TopoJSON: country and land boundaries at 10m, 50m and 110m with UN-style and independent boundary views.">
+    <meta property="og:url" content="https://cublya.github.io/world-atlas/">
+    <meta property="og:image" content="https://cublya.github.io/world-atlas/og-image.png">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:image:height" content="1260">
+    <meta property="og:image:alt" content="World Atlas — Natural Earth vector data as quantized, versioned TopoJSON">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="World Atlas · Natural Earth TopoJSON">
+    <meta name="twitter:description" content="Quantized, versioned TopoJSON built from Natural Earth: country and land boundaries at 10m, 50m and 110m with documented boundary views.">
+    <meta name="twitter:image" content="https://cublya.github.io/world-atlas/og-image.png">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "@cublya/world-atlas",
+      "description": "Natural Earth vector data redistributed as quantized, versioned TopoJSON: country and land boundaries at 1:10m, 1:50m and 1:110m with UN-style and independent boundary views.",
+      "url": "https://cublya.github.io/world-atlas/",
+      "sameAs": "https://github.com/cublya/world-atlas",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isBasedOn": "https://www.naturalearthdata.com/",
+      "creator": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
+      "keywords": ["TopoJSON", "Natural Earth", "country boundaries", "land boundaries", "world map", "cartography", "GeoJSON", "ISO 3166"],
+      "encodingFormat": "application/json",
+      "distribution": [
+        { "@type": "DataDownload", "name": "countries-50m.json", "encodingFormat": "application/json", "contentUrl": "https://cdn.jsdelivr.net/npm/@cublya/world-atlas/countries-50m.json" },
+        { "@type": "DataDownload", "name": "countries-10m.json", "encodingFormat": "application/json", "contentUrl": "https://cdn.jsdelivr.net/npm/@cublya/world-atlas/countries-10m.json" },
+        { "@type": "DataDownload", "name": "countries-110m.json", "encodingFormat": "application/json", "contentUrl": "https://cdn.jsdelivr.net/npm/@cublya/world-atlas/countries-110m.json" }
+      ]
+    }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -46,7 +89,7 @@
           </div>
         </div>
         <div class="hero-map" role="img" aria-label="Outline map of countries of the world">
-          <img src="https://raw.githubusercontent.com/cublya/world-atlas/master/img/countries.png" alt="" width="960" height="548">
+          <img src="preview-countries.png" alt="" width="960" height="548" fetchpriority="high">
         </div>
       </section>
 
