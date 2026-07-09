@@ -25,6 +25,9 @@ const unViewReassignments = new Map([
   // Somaliland is a separate Natural Earth map unit. The UN-style view dissolves
   // it into Somalia.
   ["SOL", "SOM"],
+  // Baikonur is an administrative lease within Kazakhstan, not a sovereign
+  // country. The UN-style view dissolves it into Kazakhstan.
+  ["KAB", "KAZ"],
 ]);
 const crimeaPoint = [34.1, 44.95];
 const archiveSha256 = {
@@ -305,7 +308,7 @@ const metadata = {
       default: true,
       files: scales.map((scale) => `countries-${scale}.json`),
       description:
-        "UN-style sovereign-state view. Kosovo, Northern Cyprus, the Cyprus UN buffer zone, and Somaliland are dissolved into the UN-recognized sovereign state; Crimea is assigned to Ukraine.",
+        "UN-style sovereign-state view. Kosovo, Northern Cyprus, the Cyprus UN buffer zone, Somaliland, and Baikonur are dissolved into the UN-recognized sovereign state; Crimea is assigned to Ukraine.",
     },
     independent: {
       files: scales.map((scale) => `countries-independent-${scale}.json`),

@@ -17,7 +17,7 @@
         "countries-50m.json",
         "countries-110m.json"
       ],
-      "description": "UN-style sovereign-state view. Kosovo, Northern Cyprus, the Cyprus UN buffer zone, and Somaliland are dissolved into the UN-recognized sovereign state; Crimea is assigned to Ukraine."
+      "description": "UN-style sovereign-state view. Kosovo, Northern Cyprus, the Cyprus UN buffer zone, Somaliland, and Baikonur are dissolved into the UN-recognized sovereign state; Crimea is assigned to Ukraine."
     },
     "independent": {
       "files": [

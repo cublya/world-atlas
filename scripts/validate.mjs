@@ -8,7 +8,7 @@ import { observerStateIds, unMemberIds } from "./coverage-ids.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const scales = ["10m", "50m", "110m"];
-const policyMergedNames = new Set(["Kosovo", "N. Cyprus", "Cyprus U.N. Buffer Zone", "Somaliland"]);
+const policyMergedNames = new Set(["Kosovo", "N. Cyprus", "Cyprus U.N. Buffer Zone", "Somaliland", "Baikonur"]);
 const independentNames = new Set(["Kosovo", "N. Cyprus", "Somaliland"]);
 const crimeaPoint = [34.1, 44.95];
 

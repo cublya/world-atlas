@@ -45,6 +45,7 @@
 - In the default view, Kosovo is dissolved into Serbia.
 - In the default view, Northern Cyprus and the Cyprus U.N. Buffer Zone are dissolved into Cyprus.
 - In the default view, Somaliland is dissolved into Somalia.
+- In the default view, Baikonur is dissolved into Kazakhstan.
 - In the default view, Western Sahara remains a distinct territory.
 - `countries-independent-*.json` files preserve Natural Earth independent map units such as Kosovo, Northern Cyprus, Somaliland, and Western Sahara when present in source data.
 - These files are not official United Nations cartographic products.

@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## 3.0.0 - 2026-07-09 (Hikmat Samadov)
+## 3.0.0-beta.1 - 2026-07-09 (Hikmat Samadov)
 
 ### Added
 
@@ -15,6 +15,7 @@ All notable changes to this project are documented in this file.
 
 ### Changed
 
+- Dissolve Baikonur into Kazakhstan in the default UN-style country view.
 - Refined brand logo, favicon, and project site styles with concentric circles representing the World Atlas.
 - Renamed internal `topojsonFromFeatures` helper to `buildIndependentView` in the build script.
 - Rename the package to `@cublya/world-atlas`.
