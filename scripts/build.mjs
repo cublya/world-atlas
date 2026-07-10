@@ -38,6 +38,16 @@ const archiveSha256 = {
   "110m/cultural/admin_0_countries": "0f243aeac8ac6cf26f0417285b0bd33ac47f1b5bdb719fd3e0df37d03ea37110",
   "110m/physical/land": "1926c621afd6ac67c3f36639bb1236134a48d82226dc675d3e3df53d02d2a3de",
 };
+const publicCountryPropertyOverrides = new Map([
+  [
+    "TUR",
+    {
+      name: "Turkiye",
+      nameLong: "Turkiye",
+      sovereignty: "Turkiye",
+    },
+  ],
+]);
 
 async function exists(path) {
   try {
@@ -96,7 +106,8 @@ function propertyString(properties, key) {
 
 function countryProperties(properties, extras = {}) {
   const note = propertyString(properties, "NOTE_BRK") ?? propertyString(properties, "NOTE_ADM0");
-  return {
+  const overrides = publicCountryPropertyOverrides.get(cleanString(properties.ADM0_A3)) ?? {};
+  const result = {
     name: cleanString(properties.NAME),
     ...(propertyString(properties, "NAME_LONG") ? { nameLong: propertyString(properties, "NAME_LONG") } : {}),
     ...(propertyString(properties, "ADM0_A3") ? { adm0A3: propertyString(properties, "ADM0_A3") } : {}),
@@ -108,8 +119,8 @@ function countryProperties(properties, extras = {}) {
     ...(propertyString(properties, "FCLASS_ISO") ? { fclassIso: propertyString(properties, "FCLASS_ISO") } : {}),
     ...(propertyString(properties, "FCLASS_TLC") ? { fclassTlc: propertyString(properties, "FCLASS_TLC") } : {}),
     ...(note ? { note } : {}),
-    ...extras,
   };
+  return { ...result, ...overrides, ...extras };
 }
 
 function rawCountryProperties(properties) {

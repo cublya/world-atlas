@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## 3.0.0-beta.2 - 2026-07-10 (Hikmat Samadov)
+
+### Changed
+
+- Rename Turkey to Turkiye in generated country TopoJSON properties.
+
 ## 3.0.0-beta.1 - 2026-07-09 (Hikmat Samadov)
 
 ### Added
