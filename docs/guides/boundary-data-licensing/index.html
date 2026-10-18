@@ -35,6 +35,7 @@
           "description": "What Natural Earth's public domain status allows for country boundary data, why attribution is optional, what the ISC licence covers, and how other boundary datasets' licences compare.",
           "url": "https://cublya.github.io/world-atlas/guides/boundary-data-licensing/",
           "mainEntityOfPage": "https://cublya.github.io/world-atlas/guides/boundary-data-licensing/",
+          "image": "https://cublya.github.io/world-atlas/og-image.png",
           "datePublished": "2026-10-18",
           "dateModified": "2026-10-18",
           "author": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
@@ -45,8 +46,7 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "World Atlas", "item": "https://cublya.github.io/world-atlas/" },
-            { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://cublya.github.io/world-atlas/#guides" },
-            { "@type": "ListItem", "position": 3, "name": "Boundary data licensing" }
+            { "@type": "ListItem", "position": 2, "name": "Boundary data licensing" }
           ]
         }
       ]
@@ -134,7 +134,7 @@
       </p>
 
       <h2 id="two-licences">Two licences, two kinds of file</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Licences by file type">
         <table>
           <thead>
             <tr><th scope="col">What</th><th scope="col">Where</th><th scope="col">Terms</th><th scope="col">What you must do</th></tr>
@@ -163,6 +163,9 @@
         (<a href="https://docs.npmjs.com/cli/v11/configuring-npm/package-json#files">npm docs, <code>files</code></a>),
         which is why the code licence travels with a data-only package. If
         you only ship the JSON files, the ISC terms have nothing to attach to.
+        For the same reason, the <code>"license": "ISC"</code> field in
+        <code>package.json</code> describes the code only; the data's terms are
+        in <code>DATA_LICENSE.md</code>.
       </p>
 
       <h2 id="attribution">Should you credit Natural Earth anyway?</h2>
@@ -193,7 +196,8 @@
         as you test points against it. Checked with d3-geo's
         <code>geoContains</code> on this package's files: in the 110m file,
         Geneva falls inside France, Singapore inside Malaysia and Montevideo
-        in the sea; in the 50m file, El Paso falls inside Mexico. Do not use
+        in the sea; in the 50m file, El Paso falls inside Mexico
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/boundary-checks.mjs"><code>boundary-checks.mjs</code></a>). Do not use
         these files to decide which side of a border a location is on when the
         answer has legal or financial consequences.
       </p>
@@ -208,7 +212,7 @@
       <p>
         This package then applies one of two documented views:
       </p>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Boundary views compared">
         <table>
           <thead>
             <tr><th scope="col">Area</th><th scope="col">Default <code>countries-*.json</code></th><th scope="col"><code>countries-independent-*.json</code></th></tr>
@@ -225,7 +229,8 @@
       </div>
       <p>
         Areas are measured on the 50m files with d3-geo's spherical
-        <code>geoArea</code>. "UN-style" describes this project's policy; the files are not official
+        <code>geoArea</code>
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/boundary-checks.mjs"><code>boundary-checks.mjs</code></a>). "UN-style" describes this project's policy; the files are not official
         United Nations cartographic products. Every country feature carries
         <code>properties.boundaryView</code>, and merged features in the
         default view list what was merged in
@@ -253,7 +258,7 @@
         If you are choosing a source, the licence often decides it before the
         geometry does. The summaries below quote each publisher's own page.
       </p>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Boundary dataset licences compared">
         <table>
           <thead>
             <tr><th scope="col">Dataset</th><th scope="col">Licence as published</th><th scope="col">Main obligation</th></tr>

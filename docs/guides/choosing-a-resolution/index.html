@@ -35,6 +35,7 @@
           "description": "Measured file size, point count, SVG output and country coverage of Natural Earth TopoJSON at 1:10m, 1:50m and 1:110m, with a rule of thumb for picking one by map width.",
           "url": "https://cublya.github.io/world-atlas/guides/choosing-a-resolution/",
           "mainEntityOfPage": "https://cublya.github.io/world-atlas/guides/choosing-a-resolution/",
+          "image": "https://cublya.github.io/world-atlas/og-image.png",
           "datePublished": "2026-10-18",
           "dateModified": "2026-10-18",
           "author": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
@@ -45,8 +46,7 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "World Atlas", "item": "https://cublya.github.io/world-atlas/" },
-            { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://cublya.github.io/world-atlas/#guides" },
-            { "@type": "ListItem", "position": 3, "name": "Choosing a resolution" }
+            { "@type": "ListItem", "position": 2, "name": "Choosing a resolution" }
           ]
         }
       ]
@@ -117,7 +117,7 @@
         contain both a <code>countries</code> and a <code>land</code> object.
         1 KB is 1,000 bytes.
       </p>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Measurements by resolution">
         <table>
           <caption class="meta">Size, geometry and coverage of countries-*.json by resolution</caption>
           <thead>
@@ -143,7 +143,7 @@
         <code>land-10m.json</code> 3.37 MB (840 KB).
       </p>
       <p>
-        Two rows deserve attention. GeoJSON is what your code actually holds
+        GeoJSON is what your code actually holds
         after calling <code>topojson-client</code>'s
         <a href="https://github.com/topojson/topojson-client#feature"><code>feature</code></a>:
         TopoJSON stores each shared border once and delta-encodes integer
@@ -160,7 +160,11 @@
         Method: Node.js with <code>topojson-client</code> 3 and
         <code>d3-geo</code> 3.1; sizes from the published files; compression
         with the system <code>gzip -9</code> and <code>brotli -q 11</code>;
-        coverage from the package's <code>validate</code> script lists.
+        coverage counts IDs from the package's <code>validate</code> script
+        lists. Reproduce with
+        <a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/resolution-metrics.mjs"><code>scripts/measure/resolution-metrics.mjs</code></a>.
+        At 10m, two of the counted states do not draw; see
+        <a href="#ten-m-islands">tiny islands at 10m</a>.
       </p>
 
       <h2 id="by-width">Pick by map width</h2>
@@ -172,7 +176,7 @@
         a world map where the equator runs across the full width, each
         resolution reaches its nominal scale at roughly these widths:
       </p>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Map width by resolution">
         <table>
           <thead>
             <tr><th scope="col">Resolution</th><th scope="col" class="num">Equator length on screen</th><th scope="col">Equivalent</th></tr>
@@ -234,9 +238,10 @@
       <p>
         <a href="https://github.com/topojson/topojson-simplify">topojson-simplify</a>
         can thin a topology to any point budget, so it is tempting to start
-        from 10m and cut it to the size you want. We tried it: presimplify the
+        from 10m and cut it to the size you want. To test it, presimplify the
         10m file, then keep the most important 16 % of points, which lands at
-        84,261 points, close to the 50m file's 80,629.
+        84,261 points, close to the 50m file's 80,629
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/simplify-coverage.mjs"><code>simplify-coverage.mjs</code></a>).
       </p>
       <p>
         Four more UN members collapse to zero area: Monaco, Nauru, the
@@ -295,7 +300,8 @@ const world = await fetch(url).then((response) => response.json());</code></pre>
         Bahamas, Japan, the Maldives, Mexico, Seychelles, Spain, the U.S.
         Minor Outlying Islands and the Holy See, and three reversed rings in
         the Maldives. <code>land-10m.json</code> has 173 zero-area and 7
-        reversed rings. The 50m files have none.
+        reversed rings. The 50m files have none
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/degenerate-rings.mjs"><code>degenerate-rings.mjs</code></a>).
       </p>
       <p>
         One consequence for coverage: the Holy See is present in
