@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Licensing world boundary data: Natural Earth and public domain | World Atlas</title>
+    <meta name="description" content="What Natural Earth's public domain status allows for country boundary data, why attribution is optional, what the ISC licence covers, and how other boundary datasets' licences compare.">
+    <link rel="canonical" href="https://cublya.github.io/world-atlas/guides/boundary-data-licensing/">
+    <meta name="theme-color" content="#17251f">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="World Atlas">
+    <meta property="og:title" content="Licensing world boundary data: Natural Earth and public domain">
+    <meta property="og:description" content="What public domain allows for country boundary data, what it does not settle, and how other boundary datasets' licences compare.">
+    <meta property="og:url" content="https://cublya.github.io/world-atlas/guides/boundary-data-licensing/">
+    <meta property="og:image" content="https://cublya.github.io/world-atlas/og-image.png">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:image:height" content="1260">
+    <meta property="og:image:alt" content="World Atlas: Natural Earth vector data as quantized, versioned TopoJSON">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Licensing world boundary data: Natural Earth and public domain">
+    <meta name="twitter:description" content="What public domain allows for country boundary data, and how other datasets' licences compare.">
+    <meta name="twitter:image" content="https://cublya.github.io/world-atlas/og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "headline": "Licensing world boundary data: Natural Earth and public domain",
+          "description": "What Natural Earth's public domain status allows for country boundary data, why attribution is optional, what the ISC licence covers, and how other boundary datasets' licences compare.",
+          "url": "https://cublya.github.io/world-atlas/guides/boundary-data-licensing/",
+          "mainEntityOfPage": "https://cublya.github.io/world-atlas/guides/boundary-data-licensing/",
+          "image": "https://cublya.github.io/world-atlas/og-image.png",
+          "datePublished": "2026-10-18",
+          "dateModified": "2026-10-18",
+          "author": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
+          "publisher": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
+          "about": { "@type": "Dataset", "name": "@cublya/world-atlas", "url": "https://cublya.github.io/world-atlas/" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "World Atlas", "item": "https://cublya.github.io/world-atlas/" },
+            { "@type": "ListItem", "position": 2, "name": "Boundary data licensing" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="World Atlas home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>World Atlas</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="../../#files">Files</a>
+        <a href="../../#guides">Guides</a>
+        <a href="https://github.com/cublya/world-atlas#readme">Reference</a>
+      </nav>
+      <a class="github-link" href="https://github.com/cublya/world-atlas">GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="content" class="article">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">World Atlas</a></li>
+          <li><a href="../../#guides">Guides</a></li>
+          <li aria-current="page">Boundary data licensing</li>
+        </ol>
+      </nav>
+
+      <h1>Licensing world boundary data: Natural Earth and public domain</h1>
+      <p class="meta">Applies to <code>@cublya/world-atlas</code> 3.0.0-beta.2, built from Natural Earth 5.1.2. Other datasets' terms checked 18 October 2026. This is a summary of published terms, not legal advice.</p>
+
+      <p class="lede">
+        The TopoJSON files in this package are derived from Natural Earth,
+        which declares all of its map data to be in the public domain. You can
+        use them in commercial products, modify them and redistribute them,
+        without asking permission and without crediting anyone. The
+        repository's build code is separately licensed under ISC. Neither
+        licence decides whether a border is drawn the way your readers expect;
+        that is an editorial choice you still have to make.
+      </p>
+
+      <h2 id="what-it-says">What the data licence says</h2>
+      <p>
+        The package's
+        <a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md"><code>DATA_LICENSE.md</code></a>
+        states:
+      </p>
+      <blockquote>
+        <p>
+          The generated TopoJSON artifacts in this package are derived from
+          Natural Earth vector data version 5.1.2.
+        </p>
+        <p>
+          Natural Earth declares all versions of its raster and vector map data
+          to be in the public domain. Permission and attribution are not
+          required, including for commercial use, modification, and
+          redistribution.
+        </p>
+        <p>
+          Source: &lt;https://www.naturalearthdata.com/about/terms-of-use/&gt;
+        </p>
+        <p>
+          The repository's build code is separately licensed under the ISC
+          license in <code>LICENSE</code>.
+        </p>
+      </blockquote>
+      <p>
+        That follows Natural Earth's own
+        <a href="https://www.naturalearthdata.com/about/terms-of-use/">terms of use</a>:
+        "All versions of Natural Earth raster + vector map data found on this
+        website are in the public domain. You may use the maps in any manner,
+        including modifying the content and design, electronic dissemination,
+        and offset printing." The terms add: "No permission is needed to use
+        Natural Earth. Crediting the authors is unnecessary."
+      </p>
+      <p>
+        Natural Earth uses the words "public domain" rather than a specific
+        public domain dedication such as a Creative Commons tool. When you
+        record the licence in a manifest, an SBOM or structured data, point to
+        Natural Earth's terms page rather than substituting another licence's
+        URL.
+      </p>
+
+      <h2 id="two-licences">Two licences, two kinds of file</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Licences by file type">
+        <table>
+          <thead>
+            <tr><th scope="col">What</th><th scope="col">Where</th><th scope="col">Terms</th><th scope="col">What you must do</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TopoJSON data</td>
+              <td><code>countries-*.json</code>, <code>land-*.json</code></td>
+              <td>Public domain, per Natural Earth</td>
+              <td>Nothing. Credit is optional.</td>
+            </tr>
+            <tr>
+              <td>Build code</td>
+              <td><code>scripts/</code> in the repository</td>
+              <td><a href="https://opensource.org/license/isc-license-txt">ISC licence</a>, in <code>LICENSE</code></td>
+              <td>Keep the copyright and permission notice in copies of the code.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The npm package contains the data files, <code>source.json</code>,
+        <code>DATA_LICENSE.md</code>, the README and the ISC
+        <code>LICENSE</code> file, but no build scripts. npm always includes a
+        package's README and LICENSE
+        (<a href="https://docs.npmjs.com/cli/v11/configuring-npm/package-json#files">npm docs, <code>files</code></a>),
+        which is why the code licence travels with a data-only package. If
+        you only ship the JSON files, the ISC terms have nothing to attach to.
+        For the same reason, the <code>"license": "ISC"</code> field in
+        <code>package.json</code> describes the code only; the data's terms are
+        in <code>DATA_LICENSE.md</code>.
+      </p>
+
+      <h2 id="attribution">Should you credit Natural Earth anyway?</h2>
+      <p>
+        You do not have to. If you want to, Natural Earth suggests two forms
+        on its terms page:
+      </p>
+      <ul>
+        <li>Short: "Made with Natural Earth."</li>
+        <li>Long: "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."</li>
+      </ul>
+      <p>
+        A credit in a map's footer or an about page is cheap and tells
+        readers where the borders came from, which matters when someone
+        disagrees with one. It also helps later maintainers, since
+        <code>source.json</code> pins the exact Natural Earth version
+        (<code>"naturalEarthVersion": "5.1.2"</code>) the files were built
+        from.
+      </p>
+
+      <h2 id="what-it-does-not-cover">What public domain does not settle</h2>
+
+      <h3>Accuracy</h3>
+      <p>
+        Natural Earth's terms say the authors "are not responsible for any
+        problems relating to accuracy, content, design, and how it is used."
+        The data is generalized for small-scale maps, and that shows as soon
+        as you test points against it. Checked with d3-geo's
+        <code>geoContains</code> on this package's files: in the 110m file,
+        Geneva falls inside France, Singapore inside Malaysia and Montevideo
+        in the sea; in the 50m file, El Paso falls inside Mexico
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/boundary-checks.mjs"><code>boundary-checks.mjs</code></a>). Do not use
+        these files to decide which side of a border a location is on when the
+        answer has legal or financial consequences.
+      </p>
+
+      <h3>Where the borders are</h3>
+      <p>
+        Natural Earth draws boundaries by de facto control. In its words, "We
+        show who actually controls the situation on the ground," and it
+        publishes separate point-of-view variants for several dozen countries
+        (<a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">Admin 0 countries</a>).
+      </p>
+      <p>
+        This package then applies one of two documented views:
+      </p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Boundary views compared">
+        <table>
+          <thead>
+            <tr><th scope="col">Area</th><th scope="col">Default <code>countries-*.json</code></th><th scope="col"><code>countries-independent-*.json</code></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Crimea</td><td>Ukraine</td><td>Russia (Natural Earth's de facto depiction)</td></tr>
+            <tr><td>Kosovo</td><td>Dissolved into Serbia</td><td>Separate feature</td></tr>
+            <tr><td>Northern Cyprus and the UN buffer zone</td><td>Dissolved into Cyprus</td><td>Separate features (the buffer zone only at 10m)</td></tr>
+            <tr><td>Somaliland</td><td>Dissolved into Somalia</td><td>Separate feature</td></tr>
+            <tr><td>Baikonur</td><td>Dissolved into Kazakhstan</td><td>Separate feature at 10m</td></tr>
+            <tr><td>Western Sahara</td><td colspan="2">In both views, a separate <code>W. Sahara</code> feature (code <code>732</code>) covers about 91,000 km&sup2;; the rest of the territory, about 179,000 km&sup2;, is inside the Morocco feature</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Areas are measured on the 50m files with d3-geo's spherical
+        <code>geoArea</code>
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/boundary-checks.mjs"><code>boundary-checks.mjs</code></a>). "UN-style" describes this project's policy; the files are not official
+        United Nations cartographic products. Every country feature carries
+        <code>properties.boundaryView</code>, and merged features in the
+        default view list what was merged in
+        <code>properties.policyMergedMapUnits</code>, so you can check which
+        view a running app is using.
+      </p>
+      <p>
+        No licence makes a border uncontroversial. Readers notice how disputed
+        areas are drawn, and some will tell you. Choose a view on purpose,
+        say which one on the map or its about page, and if your product needs
+        a different decision for a specific area, edit the geometry in your
+        data layer rather than in rendering code.
+      </p>
+
+      <h3>The data you put on the map</h3>
+      <p>
+        A choropleth combines boundaries with values from somewhere else. The
+        boundaries being public domain does not change the terms of the
+        values: if your statistics come under a licence that requires
+        attribution, the finished map still needs it.
+      </p>
+
+      <h2 id="compare">How other boundary datasets compare</h2>
+      <p>
+        If you are choosing a source, the licence often decides it before the
+        geometry does. The summaries below quote each publisher's own page.
+      </p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Boundary dataset licences compared">
+        <table>
+          <thead>
+            <tr><th scope="col">Dataset</th><th scope="col">Licence as published</th><th scope="col">Main obligation</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a></td>
+              <td>Public domain</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.geoboundaries.org/">geoBoundaries</a> (gbOpen)</td>
+              <td>CC BY 4.0: "the only requirement for use is acknowledgement"</td>
+              <td>Attribution in products that use it</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></td>
+              <td>Open Database License (ODbL)</td>
+              <td>Credit OpenStreetMap and its contributors; altered data may be distributed "only under the same license"</td>
+            </tr>
+            <tr>
+              <td><a href="https://gadm.org/license.html">GADM</a></td>
+              <td>"Freely available for academic use and other non-commercial use"</td>
+              <td>"Redistribution or commercial use is not allowed without prior permission"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        These datasets also differ in purpose. geoBoundaries and GADM cover
+        subnational administrative levels as well as countries; Natural Earth
+        is built for small-scale world cartography at three fixed scales. For a world map of countries
+        in a commercial product, Natural Earth's terms are the least
+        restrictive of the four.
+      </p>
+
+      <h2 id="checklist">Checklist for shipping a map</h2>
+      <ul>
+        <li>Data files only: no licence obligations. Optional credit: "Made with Natural Earth."</li>
+        <li>Copying or modifying the build scripts: keep the ISC notice.</li>
+        <li>Recording the licence in metadata: link Natural Earth's terms page.</li>
+        <li>Boundary view chosen deliberately and stated on the map or its about page.</li>
+        <li>Licences of the values you join checked separately.</li>
+        <li>Natural Earth version recorded (<code>source.json</code>), so the geometry can be traced.</li>
+      </ul>
+
+      <section class="related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Related</h2>
+        <ul>
+          <li><a href="../choosing-a-resolution/">10m, 50m or 110m? Choosing a world map resolution</a>: measured size, detail and coverage.</li>
+          <li><a href="../../#boundary-views">Boundary views</a> on the project page.</li>
+          <li><a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md"><code>DATA_LICENSE.md</code></a> and <a href="https://github.com/cublya/world-atlas/blob/master/source.json"><code>source.json</code></a> in the repository.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true"></span><strong>World Atlas</strong></div>
+      <p>Natural Earth TopoJSON, maintained by <a href="https://www.cublya.com">Cublya</a>.</p>
+      <div><a href="https://github.com/cublya/world-atlas">GitHub</a><a href="https://www.npmjs.com/package/@cublya/world-atlas">npm</a><a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md">Data license</a><a href="#content">Back to top ↑</a></div>
+    </footer>
+  </body>
+</html>
