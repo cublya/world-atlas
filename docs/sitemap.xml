@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cublya.github.io/world-atlas/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://cublya.github.io/world-atlas/guides/choosing-a-resolution/</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://cublya.github.io/world-atlas/guides/boundary-data-licensing/</loc>
+    <lastmod>2026-10-18</lastmod>
   </url>
 </urlset>
