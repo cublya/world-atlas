@@ -78,6 +78,14 @@ leave), `docs/brand/logo-*.svg` wordmarks (3), and `docs/og-image.png`.
    original as attribution. Confirm these fall under the attribution
    exception.
 
+## Release checklist addition
+
+- When a guide or the landing page changes materially, update its `<lastmod>`
+  in `docs/sitemap.xml` and, for guides, `dateModified` in the page's JSON-LD.
+  The sitemap is hand-maintained; nothing updates it automatically.
+- Measurement scripts for every guide figure live in `scripts/measure/`; rerun
+  them after a data release and update the guides.
+
 ## Checks
 
 - Run: every guide figure recomputed from the committed files (method in

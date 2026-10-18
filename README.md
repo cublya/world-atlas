@@ -17,7 +17,9 @@ World country and land boundaries as ready-to-draw TopoJSON, built from
 **5.1.2** at three scales (10m, 50m and 110m). Choose between a UN-style
 boundary view and Natural Earth's independent map units. Every file is rebuilt
 from pinned, checksummed source archives, and CI checks the boundary policy and
-that the 10m files contain all 193 UN member states.
+that the 10m files contain all 193 UN member states by ID. Some tiny 10m
+polygons collapse during quantization, so a few of those states do not draw;
+see [tiny islands at 10m](https://cublya.github.io/world-atlas/guides/choosing-a-resolution/#ten-m-islands).
 
 This maintained fork of the archived
 [`topojson/world-atlas`](https://github.com/topojson/world-atlas) project keeps
