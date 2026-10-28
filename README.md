@@ -5,21 +5,35 @@
   </picture>
 </p>
 
-# Cublya World Atlas TopoJSON
+# @cublya/world-atlas
 
-This maintained fork provides a reproducible redistribution of [Natural
-Earth](https://www.naturalearthdata.com/) vector data, version **5.1.2**, as
-quantized TopoJSON. It is derived from the archived
-[`topojson/world-atlas`](https://github.com/topojson/world-atlas) project while
-preserving the original six artifact names and object structure, with additional
-boundary-policy variants.
+[![npm](https://img.shields.io/npm/v/@cublya/world-atlas)](https://www.npmjs.com/package/@cublya/world-atlas)
+[![CI](https://github.com/cublya/world-atlas/actions/workflows/ci.yml/badge.svg)](https://github.com/cublya/world-atlas/actions/workflows/ci.yml)
+[![Data: public domain](https://img.shields.io/badge/data-public%20domain-green)](DATA_LICENSE.md)
+[![Code: ISC](https://img.shields.io/badge/code-ISC-blue)](LICENSE)
+
+World country and land boundaries as ready-to-draw TopoJSON, built from
+[Natural Earth](https://www.naturalearthdata.com/) vector data version
+**5.1.2** at three scales (10m, 50m and 110m). Choose between a UN-style
+boundary view and Natural Earth's independent map units. Every file is rebuilt
+from pinned, checksummed source archives, and CI checks the boundary policy and
+that the 10m files contain all 193 UN member states by ID. Some tiny 10m
+polygons collapse during quantization, so a few of those states do not draw;
+see [tiny islands at 10m](https://cublya.github.io/world-atlas/guides/choosing-a-resolution/#ten-m-islands).
+
+This maintained fork of the archived
+[`topojson/world-atlas`](https://github.com/topojson/world-atlas) project keeps
+the original six artifact names and object structure, and adds the
+boundary-view variants.
 
 Natural Earth data is [public
 domain](https://www.naturalearthdata.com/about/terms-of-use/): commercial use,
 modification, and redistribution are permitted without permission or required
 attribution. The build code remains ISC-licensed.
 
-**[Read the documentation](https://cublya.github.io/world-atlas/)**
+**[Project site](https://cublya.github.io/world-atlas/)** ·
+**[Choosing a resolution](https://cublya.github.io/world-atlas/guides/choosing-a-resolution/)** ·
+**[Licensing boundary data](https://cublya.github.io/world-atlas/guides/boundary-data-licensing/)**
 
 ## Install
 
@@ -68,7 +82,9 @@ against both groups.
 | `countries-110m.json` | 165 / 193 | 1 / 2 |
 
 Use 10m or 50m when complete country coverage matters. The 110m source omits
-microstates as part of Natural Earth's small-scale generalization.
+microstates as part of Natural Earth's small-scale generalization. For file
+sizes, point counts and a rule of thumb by map width, see
+[Choosing a resolution](https://cublya.github.io/world-atlas/guides/choosing-a-resolution/).
 
 ## Rebuilding
 
@@ -98,15 +114,15 @@ https://bl.ocks.org/mbostock/885fffe88d72b2a25c090e0bbbef382f
 
 ## File Reference
 
-<a href="#countries-110m.json" name="countries-110m.json">#</a> <b>countries-110m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/countries-110m.json "Source")
+<a href="#countries-110m.json" name="countries-110m.json">#</a> <b>countries-110m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-110m.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collections <i>countries</i> and <i>land</i>. The geometry is quantized, but not projected; it is in spherical coordinates, decimal degrees. This topology is derived from the Natural Earth's [Admin 0 country boundaries](http://www.naturalearthdata.com/downloads/110m-cultural-vectors/), 1:110m small scale. The land boundary is computed by [merging](https://github.com/topojson/topojson-client/blob/master/README.md#merge) countries, ensuring a consistent topology. This default file uses the UN-style boundary view.
 
-<a href="#countries-50m.json" name="countries-50m.json">#</a> <b>countries-50m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/countries-50m.json "Source")
+<a href="#countries-50m.json" name="countries-50m.json">#</a> <b>countries-50m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-50m.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collections <i>countries</i> and <i>land</i>. The geometry is quantized, but not projected; it is in spherical coordinates, decimal degrees. This topology is derived from the Natural Earth's [Admin 0 country boundaries](http://www.naturalearthdata.com/downloads/50m-cultural-vectors/), 1:50m medium scale. The land boundary is computed by [merging](https://github.com/topojson/topojson-client/blob/master/README.md#merge) countries, ensuring a consistent topology. This default file uses the UN-style boundary view.
 
-<a href="#countries-10m.json" name="countries-10m.json">#</a> <b>countries-10m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/countries-10m.json "Source")
+<a href="#countries-10m.json" name="countries-10m.json">#</a> <b>countries-10m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-10m.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collections <i>countries</i> and <i>land</i>. The geometry is quantized, but not projected; it is in spherical coordinates, decimal degrees. This topology is derived from the Natural Earth's [Admin 0 country boundaries](http://www.naturalearthdata.com/downloads/10m-cultural-vectors/), 1:10m large scale. The land boundary is computed by [merging](https://github.com/topojson/topojson-client/blob/master/README.md#merge) countries, ensuring a consistent topology. This default file uses the UN-style boundary view.
 
@@ -117,15 +133,15 @@ Natural Earth's independent map-unit view. Use them when you want Kosovo,
 Northern Cyprus, Somaliland, and similar source map units to render as separate
 features.
 
-<a href="#land-110m.json" name="land-110m.json">#</a> <b>land-110m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/land-110m.json "Source")
+<a href="#land-110m.json" name="land-110m.json">#</a> <b>land-110m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/land-110m.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collection <i>land</i>. The geometry is quantized, but not projected; it is in spherical coordinates, decimal degrees. This topology is derived from the Natural Earth's [land boundaries](http://www.naturalearthdata.com/downloads/110m-physical-vectors/), 1:110m small scale.
 
-<a href="#land-50m.json" name="land-50m.json">#</a> <b>land-50m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/land-50m.json "Source")
+<a href="#land-50m.json" name="land-50m.json">#</a> <b>land-50m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/land-50m.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collection <i>land</i>. The geometry is quantized, but not projected; it is in spherical coordinates, decimal degrees. This topology is derived from the Natural Earth's [land boundaries](http://www.naturalearthdata.com/downloads/50m-physical-vectors/), 1:50m medium scale.
 
-<a href="#land-10m.json" name="land-10m.json">#</a> <b>land-10m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/land-10m.json "Source")
+<a href="#land-10m.json" name="land-10m.json">#</a> <b>land-10m.json</b> · [Download](https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/land-10m.json "Source")
 
 A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master/README.md#21-topology-objects) containing the geometry collection <i>land</i>. The geometry is quantized, but not projected; it is in spherical coordinates, decimal degrees. This topology is derived from the Natural Earth's [land boundaries](http://www.naturalearthdata.com/downloads/10m-physical-vectors/), 1:10m large scale.
 
@@ -135,7 +151,7 @@ A [TopoJSON file](https://github.com/topojson/topojson-specification/blob/master
 
 Each country has these stable fields:
 
-* *country*.id - the three-digit [ISO 3166-1 numeric country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric), such as `"528"`
+* *country*.id - the three-digit [ISO 3166-1 numeric country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric), such as `"528"`; absent on features without one, such as Bir Tawil in the 10m files
 * *country*.properties.name - the country name, such as `"Netherlands"`
 * *country*.properties.boundaryView - `"un"` or `"independent"`
 

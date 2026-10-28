@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>World Atlas · Natural Earth TopoJSON country &amp; land boundaries</title>
-    <meta name="description" content="Versioned, validated TopoJSON built from Natural Earth: country and land boundaries at 10m, 50m and 110m with UN-style and independent boundary views. A drop-in successor to world-atlas.">
+    <meta name="description" content="Versioned TopoJSON built from Natural Earth: country and land boundaries at 10m, 50m and 110m with UN-style and independent boundary views, keeping the file names and object structure of the 2.x releases.">
     <meta name="keywords" content="topojson, geojson, natural earth, world map, country boundaries, land boundaries, world-atlas, d3-geo, cartography, choropleth basemap, iso 3166">
     <meta name="author" content="Cublya">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -20,7 +20,7 @@
     <meta property="og:image" content="https://cublya.github.io/world-atlas/og-image.png">
     <meta property="og:image:width" content="2400">
     <meta property="og:image:height" content="1260">
-    <meta property="og:image:alt" content="World Atlas — Natural Earth vector data as quantized, versioned TopoJSON">
+    <meta property="og:image:alt" content="World Atlas: Natural Earth vector data as quantized, versioned TopoJSON">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +39,9 @@
       "description": "Natural Earth vector data redistributed as quantized, versioned TopoJSON: country and land boundaries at 1:10m, 1:50m and 1:110m with UN-style and independent boundary views.",
       "url": "https://cublya.github.io/world-atlas/",
       "sameAs": "https://github.com/cublya/world-atlas",
-      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "isAccessibleForFree": true,
+      "version": "3.0.0-beta.2",
       "isBasedOn": "https://www.naturalearthdata.com/",
       "creator": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
       "keywords": ["TopoJSON", "Natural Earth", "country boundaries", "land boundaries", "world map", "cartography", "GeoJSON", "ISO 3166"],
@@ -65,7 +67,8 @@
         <a href="#coverage">Coverage</a>
         <a href="#files">Files</a>
         <a href="#data-model">Data model</a>
-        <a href="https://github.com/cublya/world-atlas#readme">Documentation</a>
+        <a href="#guides">Guides</a>
+        <a href="https://github.com/cublya/world-atlas#readme">Reference</a>
       </nav>
       <a class="github-link" href="https://github.com/cublya/world-atlas">GitHub <span aria-hidden="true">↗</span></a>
     </header>
@@ -74,14 +77,15 @@
       <section class="hero" id="top">
         <div class="hero-copy">
           <div class="eyebrow">
-            <span class="eyebrow-badge">v3.0.0-beta.1</span>
+            <span class="eyebrow-badge">v3.0.0-beta.2</span>
             <span class="eyebrow-source">Built from Natural Earth <strong>5.1.2</strong></span>
           </div>
           <h1>World geography,<br><em>ready to draw.</em></h1>
           <p class="hero-intro">
-            A convenient redistribution of Natural Earth’s vector data as
-            quantized TopoJSON, maintained as a successor to the original
-            <a href="https://github.com/topojson/world-atlas">world-atlas</a> package.
+            Natural Earth’s country and land boundaries as quantized TopoJSON
+            at three scales, with a choice of boundary view. File names and
+            object structure match the 2.x releases, so existing code keeps
+            working.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#install">Get started</a>
@@ -235,7 +239,7 @@ countries-independent-50m.json"</span>
               <code>countries</code> and <code>land</code>, derived from Natural
               Earth’s 1:110m Admin 0 country boundaries.
             </p>
-            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/countries-110m.json">Download <span aria-hidden="true">↓</span></a>
+            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-110m.json">Download <span aria-hidden="true">↓</span></a>
           </article>
 
           <article class="file-row" id="countries-50m">
@@ -245,7 +249,7 @@ countries-independent-50m.json"</span>
               <code>countries</code> and <code>land</code>, derived from Natural
               Earth’s 1:50m Admin 0 country boundaries.
             </p>
-            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/countries-50m.json">Download <span aria-hidden="true">↓</span></a>
+            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-50m.json">Download <span aria-hidden="true">↓</span></a>
           </article>
 
           <article class="file-row" id="countries-10m">
@@ -255,7 +259,7 @@ countries-independent-50m.json"</span>
               <code>countries</code> and <code>land</code>, derived from Natural
               Earth’s 1:10m Admin 0 country boundaries.
             </p>
-            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.1/countries-10m.json">Download <span aria-hidden="true">↓</span></a>
+            <a href="https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-10m.json">Download <span aria-hidden="true">↓</span></a>
           </article>
 
           <article class="file-row alternate-row" id="independent-files">
@@ -294,7 +298,8 @@ countries-independent-50m.json"</span>
             <p>
               <code>country.id</code> is the three-digit ISO 3166-1 numeric code
               when one exists, such as <code>"528"</code> for the Netherlands.
-              Non-ISO map units in the independent view may omit it.
+              Features without an ISO code, such as Bir Tawil or the Spratly
+              Islands in the 10m files, have no <code>id</code>.
             </p>
           </article>
           <article>
@@ -318,6 +323,27 @@ countries-independent-50m.json"</span>
         </div>
       </section>
 
+      <section class="section" id="guides">
+        <div class="section-heading wide-heading">
+          <p class="kicker">Guides</p>
+          <h2>Before you pick a file.</h2>
+          <p>
+            Measured answers to the two questions that come up first: which
+            resolution to load, and what the licence lets you do.
+          </p>
+        </div>
+        <div class="guide-list">
+          <a href="guides/choosing-a-resolution/">
+            <strong>10m, 50m or 110m? Choosing a world map resolution</strong>
+            <span>File size, point count, SVG output and country coverage at each scale, and a rule of thumb by map width.</span>
+          </a>
+          <a href="guides/boundary-data-licensing/">
+            <strong>Licensing world boundary data</strong>
+            <span>What Natural Earth's public domain status allows, what it does not settle, and how other datasets compare.</span>
+          </a>
+        </div>
+      </section>
+
       <section class="section provenance-section" id="source">
         <div class="provenance-card">
           <div>
@@ -332,8 +358,9 @@ countries-independent-50m.json"</span>
               without permission or required attribution.
             </p>
             <p>
-              The build code is ISC-licensed. Source URLs, archive checksums,
-              quantization, boundary views, and output names are recorded in
+              The build code is ISC-licensed. The Natural Earth version, archive
+              checksums, quantization, boundary views, and output names are
+              recorded in
               <a href="https://github.com/cublya/world-atlas/blob/master/source.json"><code>source.json</code></a>.
             </p>
             <div class="text-links">
@@ -367,7 +394,7 @@ npm run validate</code></pre>
     <footer>
       <div class="footer-brand"><span class="brand-mark" aria-hidden="true"></span><strong>World Atlas</strong></div>
       <p>Natural Earth TopoJSON, maintained by <a href="https://www.cublya.com">Cublya</a>.</p>
-      <div><a href="https://github.com/cublya/world-atlas">GitHub</a><a href="https://www.npmjs.com/package/@cublya/world-atlas">npm</a><a href="https://github.com/cublya/world-atlas#readme">Documentation</a><a href="https://github.com/topojson/world-atlas">Original repo</a><a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md">Data license</a><a href="#top">Back to top ↑</a></div>
+      <div><a href="https://github.com/cublya/world-atlas">GitHub</a><a href="https://www.npmjs.com/package/@cublya/world-atlas">npm</a><a href="#guides">Guides</a><a href="https://github.com/cublya/world-atlas#readme">Reference</a><a href="https://github.com/topojson/world-atlas">Original repo</a><a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md">Data license</a><a href="#top">Back to top ↑</a></div>
     </footer>
   </body>
 </html>

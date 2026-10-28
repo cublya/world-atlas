@@ -12,7 +12,9 @@
 - [Build script](https://github.com/cublya/world-atlas/blob/master/scripts/build.mjs): reproducible artifact generation from Natural Earth source archives.
 - [Validation script](https://github.com/cublya/world-atlas/blob/master/scripts/validate.mjs): coverage and artifact validation checks.
 - [Coverage IDs script](https://github.com/cublya/world-atlas/blob/master/scripts/coverage-ids.mjs): country coverage helper.
-- [Project site](https://cublya.github.io/world-atlas/): static landing page content for the package.
+- [Project site](https://cublya.github.io/world-atlas/): overview of files, boundary views and coverage.
+- [Choosing a resolution](https://cublya.github.io/world-atlas/guides/choosing-a-resolution/): measured file size, point count, SVG output and coverage at 10m, 50m and 110m; picking by map width; reversed and zero-area rings in the 10m files.
+- [Licensing boundary data](https://cublya.github.io/world-atlas/guides/boundary-data-licensing/): Natural Earth public domain terms, the ISC build-code licence, optional attribution, boundary views, and other datasets' licences.
 
 ## Published Files
 

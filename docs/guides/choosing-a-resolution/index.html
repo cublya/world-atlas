@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>10m, 50m or 110m? Choosing a world map resolution | World Atlas</title>
+    <meta name="description" content="Measured file size, point count, SVG output and country coverage of Natural Earth TopoJSON at 1:10m, 1:50m and 1:110m, with a rule of thumb for picking one by map width.">
+    <link rel="canonical" href="https://cublya.github.io/world-atlas/guides/choosing-a-resolution/">
+    <meta name="theme-color" content="#17251f">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="World Atlas">
+    <meta property="og:title" content="10m, 50m or 110m? Choosing a world map resolution">
+    <meta property="og:description" content="Measured file size, point count, SVG output and country coverage of Natural Earth TopoJSON at three scales, with a rule of thumb for picking one.">
+    <meta property="og:url" content="https://cublya.github.io/world-atlas/guides/choosing-a-resolution/">
+    <meta property="og:image" content="https://cublya.github.io/world-atlas/og-image.png">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:image:height" content="1260">
+    <meta property="og:image:alt" content="World Atlas: Natural Earth vector data as quantized, versioned TopoJSON">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="10m, 50m or 110m? Choosing a world map resolution">
+    <meta name="twitter:description" content="Measured size, detail and coverage of Natural Earth TopoJSON at three scales.">
+    <meta name="twitter:image" content="https://cublya.github.io/world-atlas/og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "headline": "10m, 50m or 110m? Choosing a world map resolution",
+          "description": "Measured file size, point count, SVG output and country coverage of Natural Earth TopoJSON at 1:10m, 1:50m and 1:110m, with a rule of thumb for picking one by map width.",
+          "url": "https://cublya.github.io/world-atlas/guides/choosing-a-resolution/",
+          "mainEntityOfPage": "https://cublya.github.io/world-atlas/guides/choosing-a-resolution/",
+          "image": "https://cublya.github.io/world-atlas/og-image.png",
+          "datePublished": "2026-10-18",
+          "dateModified": "2026-10-18",
+          "author": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
+          "publisher": { "@type": "Organization", "name": "Cublya", "url": "https://www.cublya.com" },
+          "about": { "@type": "Dataset", "name": "@cublya/world-atlas", "url": "https://cublya.github.io/world-atlas/" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "World Atlas", "item": "https://cublya.github.io/world-atlas/" },
+            { "@type": "ListItem", "position": 2, "name": "Choosing a resolution" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="../../" aria-label="World Atlas home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>World Atlas</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="../../#files">Files</a>
+        <a href="../../#guides">Guides</a>
+        <a href="https://github.com/cublya/world-atlas#readme">Reference</a>
+      </nav>
+      <a class="github-link" href="https://github.com/cublya/world-atlas">GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="content" class="article">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">World Atlas</a></li>
+          <li><a href="../../#guides">Guides</a></li>
+          <li aria-current="page">Choosing a resolution</li>
+        </ol>
+      </nav>
+
+      <h1>10m, 50m or 110m? Choosing a world map resolution</h1>
+      <p class="meta">Measured on <code>@cublya/world-atlas</code> 3.0.0-beta.2, built from Natural Earth 5.1.2. Published 18 October 2026.</p>
+
+      <p class="lede">
+        Use <strong>50m</strong> for most interactive world maps and every
+        choropleth: it is about 240 KB gzipped and contains all 193 UN member
+        states. Use <strong>110m</strong> only for small overview maps where
+        microstates do not matter. Use <strong>10m</strong> for maps wider
+        than a few thousand pixels, deep zoom, or print, and load it on demand.
+      </p>
+      <p>
+        The rest of this guide shows the measurements behind that advice, a
+        way to pick by map width, and two traps: simplifying 10m yourself, and
+        tiny islands in the 10m files.
+      </p>
+
+      <h2 id="what-the-names-mean">What 10m, 50m and 110m mean</h2>
+      <p>
+        The names are map scales, not distances. Natural Earth publishes its
+        data at three scales
+        (<a href="https://www.naturalearthdata.com/downloads/">Natural Earth downloads</a>):
+      </p>
+      <ul>
+        <li><strong>1:10m</strong>, 1:10,000,000 (1 cm = 100 km): "The most detailed. Suitable for making zoomed-in maps of countries and regions."</li>
+        <li><strong>1:50m</strong>, 1:50,000,000 (1 cm = 500 km): "Suitable for making zoomed-out maps of countries and regions."</li>
+        <li><strong>1:110m</strong>, 1:110,000,000 (1 cm = 1,100 km): "Suitable for schematic maps of the world on a postcard or as a small locator globe."</li>
+      </ul>
+      <p>
+        Each scale is generalized for its intended size: coastlines are
+        smoothed and features too small to see at that scale are removed. That
+        removal is why the 110m file has fewer countries, not only fewer points.
+      </p>
+
+      <h2 id="measured">What each resolution costs, measured</h2>
+      <p>
+        Figures are for the default <code>countries-*.json</code> files, which
+        contain both a <code>countries</code> and a <code>land</code> object.
+        1 KB is 1,000 bytes.
+      </p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Measurements by resolution">
+        <table>
+          <caption class="meta">Size, geometry and coverage of countries-*.json by resolution</caption>
+          <thead>
+            <tr><th scope="col">Measure</th><th scope="col" class="num">110m</th><th scope="col" class="num">50m</th><th scope="col" class="num">10m</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">File size</th><td class="num">145 KB</td><td class="num">808 KB</td><td class="num">3.72 MB</td></tr>
+            <tr><th scope="row">gzip (level 9)</th><td class="num">43 KB</td><td class="num">238 KB</td><td class="num">928 KB</td></tr>
+            <tr><th scope="row">Brotli (quality 11)</th><td class="num">36 KB</td><td class="num">210 KB</td><td class="num">787 KB</td></tr>
+            <tr><th scope="row">Country features</th><td class="num">174</td><td class="num">239</td><td class="num">253</td></tr>
+            <tr><th scope="row">Arcs</th><td class="num">595</td><td class="num">1,960</td><td class="num">4,669</td></tr>
+            <tr><th scope="row">Points</th><td class="num">8,246</td><td class="num">80,629</td><td class="num">477,600</td></tr>
+            <tr><th scope="row">GeoJSON after <code>feature()</code></th><td class="num">471 KB</td><td class="num">3.98 MB</td><td class="num">21.5 MB</td></tr>
+            <tr><th scope="row">SVG path data, 960 px wide</th><td class="num">0.16 M chars</td><td class="num">1.51 M chars</td><td class="num">8.33 M chars</td></tr>
+            <tr><th scope="row">UN member states</th><td class="num">165 / 193</td><td class="num">193 / 193</td><td class="num">193 / 193</td></tr>
+            <tr><th scope="row">UN observer states</th><td class="num">1 / 2</td><td class="num">2 / 2</td><td class="num">2 / 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The land-only files are smaller: <code>land-110m.json</code> is 55 KB
+        (21 KB gzipped), <code>land-50m.json</code> 545 KB (169 KB), and
+        <code>land-10m.json</code> 3.37 MB (840 KB).
+      </p>
+      <p>
+        GeoJSON is what your code actually holds
+        after calling <code>topojson-client</code>'s
+        <a href="https://github.com/topojson/topojson-client#feature"><code>feature</code></a>:
+        TopoJSON stores each shared border once and delta-encodes integer
+        coordinates
+        (<a href="https://github.com/topojson/topojson-specification#213-arcs">TopoJSON specification, 2.1.3</a>),
+        so the 10m file expands from 3.72 MB to 21.5 MB in memory as JSON
+        text. The SVG row is the total length of the <code>d</code> attributes
+        that d3-geo's <code>geoPath</code> writes for every country on a 960
+        pixel wide Natural Earth projection. At 10m that is 8.3 million
+        characters of path data for an image with fewer than half a million
+        pixels; most of those points land on top of each other.
+      </p>
+      <p class="meta">
+        Method: Node.js with <code>topojson-client</code> 3 and
+        <code>d3-geo</code> 3.1; sizes from the published files; compression
+        with the system <code>gzip -9</code> and <code>brotli -q 11</code>;
+        coverage counts IDs from the package's <code>validate</code> script
+        lists. Reproduce with
+        <a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/resolution-metrics.mjs"><code>scripts/measure/resolution-metrics.mjs</code></a>.
+        At 10m, two of the counted states do not draw; see
+        <a href="#ten-m-islands">tiny islands at 10m</a>.
+      </p>
+
+      <h2 id="by-width">Pick by map width</h2>
+      <p>
+        A scale of 1:110,000,000 says how much of the Earth one unit of map
+        covers. Turn it into screen terms: CSS defines 96 pixels per inch
+        (<a href="https://www.w3.org/TR/css-values-4/#absolute-lengths">CSS Values and Units, absolute lengths</a>),
+        so one CSS pixel is about 0.26 mm. The equator is 40,075 km long. On
+        a world map where the equator runs across the full width, each
+        resolution reaches its nominal scale at roughly these widths:
+      </p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Map width by resolution">
+        <table>
+          <thead>
+            <tr><th scope="col">Resolution</th><th scope="col" class="num">Equator length on screen</th><th scope="col">Equivalent</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>110m</td><td class="num">about 1,400 px</td><td>A full-width page map, unzoomed</td></tr>
+            <tr><td>50m</td><td class="num">about 3,000 px</td><td>A 1,000 px map zoomed about 3 times</td></tr>
+            <tr><td>10m</td><td class="num">about 15,000 px</td><td>A 1,000 px map zoomed about 15 times</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Treat these as a rule of thumb rather than a limit. World projections
+        distort scale away from the equator, and on a high-density screen each
+        CSS pixel has two or three device pixels, so generalization shows
+        earlier than the numbers suggest. Below a resolution's width it simply
+        carries more detail than the screen can show; above it, coastlines
+        start to look angular.
+      </p>
+      <p>
+        In practice: 110m is right for thumbnails, small locator maps and
+        decorative backgrounds. 50m holds up to full-screen maps on a laptop
+        and a few steps of zoom. Switch to 10m when users zoom past about three
+        times, or when you render for print.
+      </p>
+
+      <h2 id="coverage">Coverage decides before size does</h2>
+      <p>
+        Natural Earth drops features too small for 1:110m. In the 110m file,
+        that removes 28 UN member states and the Holy See: Andorra, Antigua
+        and Barbuda, Bahrain, Barbados, Cabo Verde, Comoros, Dominica, Grenada,
+        Kiribati, Liechtenstein, the Maldives, Malta, the Marshall Islands,
+        Mauritius, Micronesia, Monaco, Nauru, Palau, Saint Kitts and Nevis,
+        Saint Lucia, Saint Vincent and the Grenadines, Samoa, San Marino,
+        São Tomé and Príncipe, Seychelles, Singapore, Tonga and Tuvalu.
+      </p>
+      <p>
+        On a choropleth, a missing feature fails silently: the value for
+        Singapore or Bahrain has no shape to colour, and no error tells you.
+        If every country in your data has to appear, start at 50m whatever the
+        map size.
+      </p>
+      <p>
+        The 10m file adds 14 features over 50m, mostly small territories and
+        disputed or unclaimed areas: Akrotiri, Dhekelia, Gibraltar, the
+        U.S. Naval Base at Guantanamo Bay, Bir Tawil, the Southern Patagonian
+        Ice Field, the Spratly Islands, Scarborough Reef and several reefs and
+        banks. Most have no ISO 3166-1 code, so data keyed by ISO code will not
+        colour them.
+      </p>
+      <p>
+        Being present is not the same as being visible. At 50m, Monaco is a
+        polygon a fraction of a pixel wide on a 1,000 px world map. If small
+        states matter to your readers, also draw them as point markers or list
+        them next to the map.
+      </p>
+
+      <h2 id="simplify">Why not simplify 10m yourself?</h2>
+      <p>
+        <a href="https://github.com/topojson/topojson-simplify">topojson-simplify</a>
+        can thin a topology to any point budget, so it is tempting to start
+        from 10m and cut it to the size you want. To test it, presimplify the
+        10m file, then keep the most important 16 % of points, which lands at
+        84,261 points, close to the 50m file's 80,629
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/simplify-coverage.mjs"><code>simplify-coverage.mjs</code></a>).
+      </p>
+      <p>
+        Four more UN members collapse to zero area: Monaco, Nauru, the
+        Marshall Islands and Tuvalu. (The Maldives and the Holy See are
+        already degenerate in the unsimplified 10m file; see
+        <a href="#ten-m-islands">tiny islands at 10m</a>.) Natural Earth's 50m
+        file, generalized by cartographers rather than by an area threshold,
+        draws all 195 states at a similar point count. Use the published scale
+        closest to your need, and simplify only from there.
+      </p>
+
+      <h2 id="loading">Loading strategies</h2>
+      <p>
+        A static import puts the whole file in your JavaScript bundle. That is
+        fine for 110m and usually for 50m:
+      </p>
+      <pre><code>import world from "@cublya/world-atlas/countries-50m.json" with { type: "json" };</code></pre>
+      <p>
+        For 10m, load it only when needed. A dynamic import lets the bundler
+        split it into its own chunk:
+      </p>
+      <pre><code>async function loadDetailedWorld() {
+  const { default: world } = await import(
+    "@cublya/world-atlas/countries-10m.json",
+    { with: { type: "json" } }
+  );
+  return world;
+}</code></pre>
+      <p>
+        Or fetch it from a CDN at runtime. Pin the version so the geometry
+        does not change under you:
+      </p>
+      <pre><code>const url = "https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-10m.json";
+const world = await fetch(url).then((response) => response.json());</code></pre>
+      <p>
+        Whatever you load, convert TopoJSON to GeoJSON once and cache the
+        result. The conversion itself is quick; repeating it on every render
+        is the common mistake.
+      </p>
+
+      <h2 id="ten-m-islands">Tiny islands at 10m</h2>
+      <p>
+        Coordinates in these files are quantized to a grid of 100,000 steps in
+        each direction (<code>source.json</code> records
+        <code>"quantization": 100000</code>), as the TopoJSON specification
+        allows
+        (<a href="https://github.com/topojson/topojson-specification#212-transforms">2.1.2, transforms</a>).
+        Across 360° of longitude that is a step of 0.0036°, about 400 m at the
+        equator; in latitude it is about 190 m.
+      </p>
+      <p>
+        That is far finer than 50m or 110m detail, but the 10m source contains
+        islands and enclaves smaller than one grid cell. Snapped to the grid,
+        their rings can collapse to zero area or come out wound the wrong way.
+        In 3.0.0-beta.2, the 10m country files contain zero-area rings in the
+        Bahamas, Japan, the Maldives, Mexico, Seychelles, Spain, the U.S.
+        Minor Outlying Islands and the Holy See, and three reversed rings in
+        the Maldives. <code>land-10m.json</code> has 173 zero-area and 7
+        reversed rings. The 50m files have none
+        (<a href="https://github.com/cublya/world-atlas/blob/master/scripts/measure/degenerate-rings.mjs"><code>degenerate-rings.mjs</code></a>).
+      </p>
+      <p>
+        One consequence for coverage: the Holy See is present in
+        <code>countries-10m.json</code> with its ISO code, so it counts in the
+        coverage table, but its polygon has zero area and draws nothing. At
+        50m it draws.
+      </p>
+      <div class="callout">
+        <p>
+          d3-geo treats a ring that encloses more than a hemisphere as covering
+          the rest of the sphere. A reversed tiny ring therefore draws as a fill
+          over the whole map. If a 10m map renders as a solid block, this is the
+          likely cause.
+        </p>
+      </div>
+      <p>
+        Until the files are rebuilt, reverse any ring whose spherical area is
+        larger than a hemisphere after converting to GeoJSON:
+      </p>
+      <pre><code>import { geoArea } from "d3-geo";
+
+function fixPolygon(rings) {
+  const area = geoArea({ type: "Polygon", coordinates: rings });
+  return area > 2 * Math.PI ? rings.map((ring) => [...ring].reverse()) : rings;
+}
+
+function fixFeature(feature) {
+  const { geometry } = feature;
+  if (geometry?.type === "Polygon") {
+    return { ...feature, geometry: { ...geometry, coordinates: fixPolygon(geometry.coordinates) } };
+  }
+  if (geometry?.type === "MultiPolygon") {
+    return { ...feature, geometry: { ...geometry, coordinates: geometry.coordinates.map(fixPolygon) } };
+  }
+  return feature;
+}</code></pre>
+      <p>
+        <code>@cublya/geomap</code>'s <code>prepareCountries</code> already does
+        this for every polygon it prepares.
+      </p>
+
+      <h2 id="checklist">Checklist</h2>
+      <ul>
+        <li>Every country in your data must appear: 50m or 10m.</li>
+        <li>Small, static overview: 110m, if the missing microstates are acceptable.</li>
+        <li>Zoomable map: 50m first, 10m on demand past about three times zoom.</li>
+        <li>Print or very large exports: 10m, with reversed rings fixed.</li>
+        <li>Pin the package version in CDN URLs.</li>
+        <li>Convert to GeoJSON once and cache it.</li>
+      </ul>
+
+      <section class="related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Related</h2>
+        <ul>
+          <li><a href="../boundary-data-licensing/">Licensing world boundary data</a>: what Natural Earth's public domain status allows, and what it does not settle.</li>
+          <li><a href="../../#coverage">Coverage table</a> and <a href="../../#files">file reference</a> on the project page.</li>
+          <li><a href="https://cublya.github.io/geomap/docs/guides/choropleth-map">Rendering a choropleth map in React</a>, using these files.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true"></span><strong>World Atlas</strong></div>
+      <p>Natural Earth TopoJSON, maintained by <a href="https://www.cublya.com">Cublya</a>.</p>
+      <div><a href="https://github.com/cublya/world-atlas">GitHub</a><a href="https://www.npmjs.com/package/@cublya/world-atlas">npm</a><a href="https://github.com/cublya/world-atlas/blob/master/DATA_LICENSE.md">Data license</a><a href="#content">Back to top ↑</a></div>
+    </footer>
+  </body>
+</html>

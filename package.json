@@ -1,12 +1,29 @@
 {
   "name": "@cublya/world-atlas",
   "version": "3.0.0-beta.2",
-  "description": "Versioned, validated TopoJSON built from current Natural Earth data.",
+  "description": "World country and land boundaries as TopoJSON, built from Natural Earth 5.1.2 at 10m, 50m and 110m, with UN-style and independent boundary views.",
   "license": "ISC",
+  "homepage": "https://cublya.github.io/world-atlas/",
+  "bugs": {
+    "url": "https://github.com/cublya/world-atlas/issues"
+  },
   "keywords": [
     "topojson",
     "geojson",
-    "shapefile"
+    "shapefile",
+    "natural-earth",
+    "world-map",
+    "world-atlas",
+    "countries",
+    "country-boundaries",
+    "borders",
+    "map",
+    "d3",
+    "d3-geo",
+    "choropleth",
+    "iso-3166",
+    "cartography",
+    "gis"
   ],
   "author": {
     "name": "Mike Bostock",
