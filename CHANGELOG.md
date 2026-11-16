@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## 3.0.0 - 2026-11-17 (Hikmat Samadov)
+
+### Changed
+
+- First stable release: the 3.0.0-beta.2 data and API, without the beta tag.
+
 ## 3.0.0-beta.2 - 2026-07-10 (Hikmat Samadov)
 
 ### Changed

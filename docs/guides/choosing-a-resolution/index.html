@@ -79,7 +79,7 @@
       </nav>
 
       <h1>10m, 50m or 110m? Choosing a world map resolution</h1>
-      <p class="meta">Measured on <code>@cublya/world-atlas</code> 3.0.0-beta.2, built from Natural Earth 5.1.2. Published 18 October 2026.</p>
+      <p class="meta">Measured on <code>@cublya/world-atlas</code> 3.0.0, built from Natural Earth 5.1.2. Published 18 October 2026.</p>
 
       <p class="lede">
         Use <strong>50m</strong> for most interactive world maps and every
@@ -274,7 +274,7 @@
         Or fetch it from a CDN at runtime. Pin the version so the geometry
         does not change under you:
       </p>
-      <pre><code>const url = "https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0-beta.2/countries-10m.json";
+      <pre><code>const url = "https://cdn.jsdelivr.net/npm/@cublya/world-atlas@3.0.0/countries-10m.json";
 const world = await fetch(url).then((response) => response.json());</code></pre>
       <p>
         Whatever you load, convert TopoJSON to GeoJSON once and cache the
@@ -296,7 +296,7 @@ const world = await fetch(url).then((response) => response.json());</code></pre>
         That is far finer than 50m or 110m detail, but the 10m source contains
         islands and enclaves smaller than one grid cell. Snapped to the grid,
         their rings can collapse to zero area or come out wound the wrong way.
-        In 3.0.0-beta.2, the 10m country files contain zero-area rings in the
+        In 3.0.0, the 10m country files contain zero-area rings in the
         Bahamas, Japan, the Maldives, Mexico, Seychelles, Spain, the U.S.
         Minor Outlying Islands and the Holy See, and three reversed rings in
         the Maldives. <code>land-10m.json</code> has 173 zero-area and 7

@@ -19,4 +19,4 @@ dependencies of this repository. Install them without saving:
 npm install --no-save topojson-simplify@3 polygon-clipping@0.15
 ```
 
-Figures in the guides were measured on 3.0.0-beta.2 with Node.js 26.
+Figures in the guides were measured on 3.0.0 with Node.js 26.

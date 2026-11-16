@@ -1,6 +1,6 @@
 {
   "name": "@cublya/world-atlas",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0",
   "description": "World country and land boundaries as TopoJSON, built from Natural Earth 5.1.2 at 10m, 50m and 110m, with UN-style and independent boundary views.",
   "license": "ISC",
   "homepage": "https://cublya.github.io/world-atlas/",
